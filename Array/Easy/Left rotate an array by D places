@@ -1,0 +1,9 @@
+class Solution:
+    def leftRotate(self, arr, n, d):
+        # code here
+        if n == d:
+            return arr
+        for i in range(d%n):
+            temp = arr.pop(0)
+            arr.append(temp)
+        return arr
