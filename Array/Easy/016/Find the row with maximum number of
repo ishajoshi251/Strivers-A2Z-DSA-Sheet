@@ -1,0 +1,11 @@
+class Solution:
+
+	def rowWithMax1s(self,arr, n, m):
+		# code here
+		
+		for c in range(m):
+		    for r in range(n):
+		        if arr[r][c] == 1:
+		            return r
+		return -1
+		        
