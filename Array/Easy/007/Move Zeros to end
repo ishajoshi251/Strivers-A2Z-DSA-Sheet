@@ -1,0 +1,13 @@
+class Solution:
+	def pushZerosToEnd(self,arr, n):
+    	# code here
+        right = 0
+        left = 0
+        while right<n:
+            if arr[right] == 0:
+                right += 1
+            else:
+                arr[right],arr[left] = arr[left],arr[right]
+                right += 1
+                left += 1
+        return arr
