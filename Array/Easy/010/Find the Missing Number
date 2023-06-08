@@ -1,0 +1,6 @@
+def missingNumber( A, N):
+     # Your code goes here
+     summ = (N*(N+1))//2
+     for i in range(N-1):
+         summ -= A[i]
+     return summ
