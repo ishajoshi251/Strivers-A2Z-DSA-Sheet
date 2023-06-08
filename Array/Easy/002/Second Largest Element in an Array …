@@ -1,0 +1,24 @@
+class Solution:
+
+	def print2largest(self,arr, n):
+		# code here
+		'''
+	    maxi = 0
+	    smaxi = -1
+	    for i in range(n):
+	        if arr[i]>maxi:
+	            maxi=arr[i]
+	    for i in range(n):
+	        if arr[i]<maxi and arr[i]>smaxi:
+	            smaxi = arr[i]
+	    return smaxi
+	    '''
+	    maxi = -1
+	    smaxi = -1
+	    for i in range(n):
+	        if arr[i]>maxi:
+	            smaxi = maxi
+	            maxi=arr[i]
+	        elif arr[i]>smaxi and arr[i]<maxi:
+	            smaxi = arr[i]
+	    return smaxi
