@@ -1,0 +1,29 @@
+leetcode
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        d = {}
+        for i in range(len(nums)):
+            if target-nums[i] in d:
+                return [d[target-nums[i]],i]
+            d[nums[i]] = i
+        
+        
+        
+ gfg
+ #User function Template for python3
+from collections import defaultdict
+
+class Solution:
+    def allPairs(self, A, B, N, M, X):
+        # Your code goes here 
+        ans = []
+        A.sort()
+        for i in A:
+            if X-i in B:
+                ans.append((i,X-i))
+        return ans
