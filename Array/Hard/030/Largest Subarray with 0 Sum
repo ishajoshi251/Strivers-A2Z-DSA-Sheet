@@ -1,0 +1,15 @@
+class Solution:
+    def maxLen(self, n, arr):
+        #Code here
+        d = {}
+        curr = 0
+        maxi = 0
+        for i in range(0,n):
+            curr += arr[i]
+            if curr == 0:
+                maxi = i+1
+            if curr in d:
+                maxi = max(maxi,i-d[curr])
+            else:
+                d[curr] = i
+        return maxi
