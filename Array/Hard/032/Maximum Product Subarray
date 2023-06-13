@@ -1,0 +1,21 @@
+class Solution:
+
+	# Function to find maximum
+	# product subarray
+	def maxProduct(self,arr, n):
+		# code here
+		pre = 1
+		suff = 1
+		maxi = -111111111
+		flag = 0
+		for i in range(n):
+		    pre *= arr[i]
+		    maxi = max(maxi,pre)
+		    if arr[i] == 0:
+		        pre = 1
+		for i in range(n-1,-1,-1):
+		     suff*=arr[i]
+		     maxi = max(maxi,suff)
+		     if arr[i] == 0:
+		        suff = 1
+		return maxi
