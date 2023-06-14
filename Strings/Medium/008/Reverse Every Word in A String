@@ -1,0 +1,19 @@
+class Solution:
+    
+    #Function to reverse words in a given string.
+    def reverseWords(self,S):
+        # code here 
+        ans = ""
+        temp = ""
+        for i in range(len(S)-1,-1,-1):
+            if S[i] == '.':
+                temp = temp[::-1]
+                ans += temp
+                ans += '.'
+                temp = ""
+            else:
+                temp +=  S[i]
+                
+        temp = temp[::-1]
+        ans += temp
+        return ans
