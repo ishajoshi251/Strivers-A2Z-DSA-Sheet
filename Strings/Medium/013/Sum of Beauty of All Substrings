@@ -1,0 +1,21 @@
+class Solution:
+    def beautySum(self, s):
+        # Code here
+        ans = 0
+        n = len(s)
+        
+        for i in range(n):
+            cnt = [0] * 26
+            max_f = float('-inf')
+            min_f = float('inf')
+            
+            for j in range(i, n):
+                ind = ord(s[j]) - ord('a')
+                cnt[ind] += 1
+                max_f = max(max_f, cnt[ind])
+                
+                min_f = min([cnt[k] for k in range(26) if cnt[k] >= 1])
+                
+                ans += max_f - min_f
+        
+        return ans
