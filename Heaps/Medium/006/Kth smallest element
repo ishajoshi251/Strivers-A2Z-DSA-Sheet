@@ -1,0 +1,16 @@
+import heapq
+class Solution:
+    def kthSmallest(self,arr, l, r, k):
+        '''
+        arr : given array
+        l : starting index of the array i.e 0
+        r : ending index of the array i.e size-1
+        k : find kth smallest element and return using this function
+        '''
+        a = 0
+        heap = []
+        for i in range(n):
+            heapq.heappush(heap,arr[i])
+        for i in range(k):
+            a = heapq.heappop(heap)
+        return a
