@@ -1,0 +1,16 @@
+import heapq
+class Solution:
+    def isNStraightHand(self, hand: List[int], W: int) -> bool:
+        minHeap = []
+        for i in hand:
+            heapq.heappush(minHeap, i)
+        
+        while len(minHeap) != 0:
+            start = heapq.heappop(minHeap)
+            for j in range(1, W):
+                if start + j in minHeap:
+                    minHeap.remove(start + j)
+                else:
+                    return False
+        
+        return True
