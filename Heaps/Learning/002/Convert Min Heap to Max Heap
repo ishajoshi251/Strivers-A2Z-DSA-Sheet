@@ -1,0 +1,13 @@
+import heapq
+class Solution:
+    def convertMinToMaxHeap(self, N, arr):
+        # Code here
+        heap = []
+        for i in range(N):
+            heapq.heappush(heap, -arr[i])
+            
+        ans = []
+        for i in range(N):
+            a = -1*heapq.heappop(heap)
+            ans.append(a)
+        arr[:] = ans[:]
