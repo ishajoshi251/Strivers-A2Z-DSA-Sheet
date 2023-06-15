@@ -1,0 +1,12 @@
+import heapq
+class Solution:
+    #Function to return k largest elements from an array.
+    def kLargest(self,li,n,k):
+        # code here
+        heap = []
+        for i in range(n):
+            heapq.heappush(heap,-li[i])
+        ans = []
+        for i in range(k):
+            ans.append(-(heapq.heappop(heap)))
+        return ans
