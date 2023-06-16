@@ -1,0 +1,17 @@
+import heapq
+class Solution:
+    def kthLargest(self, k, arr, n):
+        # code here 
+        heap = []
+        ans = []
+        for i in range(n):
+            heapq.heappush(heap,arr[i])
+            if len(heap)<k:
+               
+                ans.append(-1)
+            elif len(heap)==k:
+                ans.append(heap[0])
+            else:
+                heapq.heappop(heap)
+                ans.append(heap[0])
+        return ans       
