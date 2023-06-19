@@ -1,0 +1,15 @@
+class Solution:
+	def NthRoot(self, n, m):
+		# Code here
+        low =1
+        high =m
+        while low<=high:
+            mid = (high+low)//2
+            if mid**n == m:
+                return mid
+            elif mid**n<m:
+                low = mid+1
+            else:
+                high = mid-1
+        return -1
+                
