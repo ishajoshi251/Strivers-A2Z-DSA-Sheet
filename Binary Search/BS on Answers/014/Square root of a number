@@ -1,0 +1,17 @@
+class Solution:
+    def floorSqrt(self, x): 
+    #Your code here
+       ans = 0
+       low = 1
+       high =x
+       while low<=high:
+           mid = low +(high-low)//2
+           if mid*mid < x:
+               ans = mid
+               low = mid +1
+           elif mid*mid == x:
+               ans = mid
+               break
+           elif mid*mid > x:
+               high = mid -1
+       return ans
