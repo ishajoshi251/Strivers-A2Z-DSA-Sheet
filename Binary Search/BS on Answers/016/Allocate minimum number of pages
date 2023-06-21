@@ -1,0 +1,33 @@
+class Solution:
+    def isPossible(self,A,N,M,mid):
+        allocated_s = 1
+        pages = 0
+        for i in range(N):
+            if A[i]>mid:
+                return False
+            if pages+A[i]>mid:
+                allocated_s += 1
+                pages = 0
+                pages += A[i]
+            else:
+                pages += A[i]
+        if allocated_s > M:
+            return False
+        
+        return True
+    #Function to find minimum number of pages.
+    def findPages(self,A, N, M):
+        #code here
+        if M>N:
+            return -1
+        ans = -1
+        low = A[0]
+        high = sum(A)
+        while low<=high:
+            mid = (low+high)//2
+            if self.isPossible(A,N,M,mid):
+                ans = mid
+                high = mid-1
+            else:
+                low = mid+1
+        return ans
