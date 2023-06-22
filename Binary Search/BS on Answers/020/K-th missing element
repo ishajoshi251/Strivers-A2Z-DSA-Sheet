@@ -1,0 +1,12 @@
+def KthMissingElement (arr,  n, k) : 
+    #Complete the function
+    for i in range(n-1):
+        if arr[i]+1 == arr[i+1]:
+            continue
+        else:
+            while arr[i]+1 != arr[i+1]:
+                k -= 1
+                if k == 0:
+                    return arr[i]+1
+                arr[i] += 1
+    return -1
