@@ -1,0 +1,7 @@
+class Solution:
+    def oddEven (ob,N):
+        # code here 
+        num = N&1
+        if num:
+            return 'odd'
+        return 'even'
