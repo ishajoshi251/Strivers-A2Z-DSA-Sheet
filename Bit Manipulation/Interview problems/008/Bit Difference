@@ -1,0 +1,12 @@
+class Solution:
+    ##Complete this function
+    # Function to find number of bits needed to be flipped to convert A to B
+    def countBitsFlip(self,a,b):
+        ##Your code here
+        count = 0
+        while a>0 or b>0:
+            if a&1 != b&1:
+                count += 1
+            a >>=1
+            b>>=1
+        return count
