@@ -1,0 +1,13 @@
+class Solution:
+    def bitManipulation(self, num, i):
+        # Code here
+        ith_bit = (num >> (i-1)) & 1
+        print(ith_bit, end=' ')
+    
+        # Set ith bit
+        set_num = num | (1 << (i-1))
+        print(set_num, end=' ')
+        print(num)
+        # Clear ith bit
+        clear_num = num & ~(1 << (i-1))
+        print(clear_num, end=' ')
