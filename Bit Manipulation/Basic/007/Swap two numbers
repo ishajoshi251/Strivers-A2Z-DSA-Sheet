@@ -1,0 +1,10 @@
+class Solution:
+    def get(self, a, b):
+        #code here
+        a = a^b
+        print(a)
+        b = a^b
+        print(b)
+        a = a^b
+        print(a)
+        return (a,b)
