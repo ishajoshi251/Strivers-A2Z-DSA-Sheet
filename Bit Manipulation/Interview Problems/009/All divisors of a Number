@@ -1,0 +1,13 @@
+import math
+class Solution:
+    def print_divisors(self, N):
+        # code here
+        s = set()
+        for i in range(1,int(math.sqrt(N))+1):
+            if N%i == 0:
+                s.add(i)
+                temp = N//i
+                s.add(temp)
+        
+        for i in sorted(s):
+            print(i,end=" ")
