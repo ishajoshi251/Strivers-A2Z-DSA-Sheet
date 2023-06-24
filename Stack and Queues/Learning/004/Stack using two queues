@@ -1,0 +1,31 @@
+'''
+    :param x: value to be inserted
+    :return: None
+
+    queue_1 = [] # first queue
+    queue_2 = [] # second queue
+   '''
+def __init__(self):
+        self.queue_1 = []
+        self.queue_2 = []
+   
+#Function to push an element into stack using two queues.
+def push(self,x):
+    
+    
+    
+    # code here
+    self.queue_1.append(x)
+    self.queue_2.append(queue_1.pop())
+
+#Function to pop an element from stack using two queues.     
+def pop(self):
+    
+   
+    # code here
+    
+    if not self.queue_2:
+        return -1
+    
+        
+    return self.queue_2.pop()
