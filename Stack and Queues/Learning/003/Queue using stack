@@ -1,0 +1,17 @@
+class Queue:
+    def __init__(self):
+        self.stack1 = []
+        self.stack2 = []
+        
+    def enqueue(self,X):
+        # code here
+        self.stack1.append(X)
+        
+    def dequeue(self):
+        # code here
+        while self.stack1:
+            self.stack2.append(self.stack1.pop())
+        ans = self.stack2.pop()
+        while self.stack2:
+            self.stack1.append(self.stack2.pop())
+        return ans
