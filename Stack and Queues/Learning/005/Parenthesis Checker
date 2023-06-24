@@ -1,0 +1,32 @@
+class Solution:
+    
+    #Function to check if brackets are balanced or not.
+    def ispar(self,x):
+        # code here
+        stack = []
+        for i in x:
+            if i in ['{','(','[']:
+                stack.append(i)
+            else:
+                if stack:
+                    a = stack.pop()
+                    if i == ')':
+                        if '(' == a:
+                            continue
+                        else:
+                            return False
+                    if i == ']':
+                        if '[' == a:
+                            continue
+                        else:
+                            return False
+                    if i == '}':
+                        if '{' == a:
+                            continue
+                        else:
+                            return False
+                else:
+                    return False
+        if stack:
+            return False
+        return True
