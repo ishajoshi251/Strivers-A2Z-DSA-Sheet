@@ -1,0 +1,13 @@
+class Solution:
+    def count_NGEs(self, N, arr, queries, indices):
+        # Code here
+        ans = []
+        for i in range(queries):
+            count = 0
+            ind = indices[i]
+            for j in range(ind+1,N):
+                ele = arr[ind]
+                if arr[j]>ele:
+                    count += 1
+            ans.append(count)
+        return ans
