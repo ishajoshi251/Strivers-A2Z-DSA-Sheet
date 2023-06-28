@@ -1,0 +1,24 @@
+class stack:
+    def __init__(self):
+        self.s=[]
+        self.minEle=None
+
+    def push(self,x):
+        #CODE HERE
+        self.s.append(x)
+
+    def pop(self):
+        #CODE HERE
+        if len(self.s) == 0:
+            return -1
+        return self.s.pop()
+
+    def getMin(self):
+        #CODE HERE
+        if len(self.s) == 0:
+            return -1
+        mini = 1000000
+        for i in self.s:
+            if i<mini:
+                mini = i
+        return mini
