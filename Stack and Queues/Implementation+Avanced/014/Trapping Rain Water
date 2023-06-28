@@ -1,0 +1,29 @@
+class Solution:
+    def trappingWater(self, arr,n):
+        #Code here
+        left = [0]*n
+        right = [0]*n
+        
+        left_max = arr[0]
+        right_max = arr[-1]
+        for i in range(n):
+            if left_max<arr[i]:
+                left_max=arr[i]
+                left[i] = left_max
+                
+            else:
+                left[i] = left_max
+            
+        for i in range(n-1,-1,-1):
+            if right_max<arr[i]:
+                right_max=arr[i]
+                right[i] = right_max
+                
+            else:
+                right[i] = right_max
+        summ = 0
+        for i in range(n):
+            summ += min(left[i],right[i])-arr[i]
+           
+        return summ
+            
