@@ -1,0 +1,24 @@
+
+'''
+class node:
+    def __init__(self):
+        self.data = None
+        self.next = None
+'''
+
+def delNode(head, k):
+    # Code here
+    count = 0
+    if not head:
+       return
+    if k == 1:
+        head = head.next
+    else:
+        itr = head
+        while count<k-2:
+            itr = itr.next
+            count += 1
+            
+        itr.next=itr.next.next
+            
+    return head
