@@ -1,0 +1,28 @@
+'''    
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+'''
+class Solution:
+    #Function to insert a node at the beginning of the linked list.
+    def insertAtBegining(self,head,x):
+        # code here 
+        if not head:
+            return Node(x)
+        dummy = Node(x)
+        dummy.next = head
+        return dummy
+    
+    #Function to insert a node at the end of the linked list.
+    def insertAtEnd(self,head,x):
+        # code here
+        if not head:
+            return Node(x)
+        itr = head
+        while itr.next != None:
+            itr = itr.next
+        new = Node(x)
+        itr.next = new
+        new.next = None
+        return head
