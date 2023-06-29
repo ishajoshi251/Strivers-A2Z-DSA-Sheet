@@ -1,0 +1,18 @@
+''' Node of a linked list
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+'''
+class Solution:
+    def searchKey(self, n, head, key):
+        #Code here
+        if not head:
+            return 0
+        else:
+            itr = head
+            while itr:
+                if itr.data == key:
+                    return 1
+                itr = itr.next
+            return 0
