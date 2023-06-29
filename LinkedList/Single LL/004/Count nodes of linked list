@@ -1,0 +1,25 @@
+'''
+
+#Linked list class
+class LinkedList:
+    def __init__(self):
+        self.head=None
+        self.tail=None
+        '''
+class Solution:
+    
+    #Function to count nodes of a linked list.
+    def getCount(self, head):
+        #code here
+        if not head:
+            return 0
+        elif not head.next:
+            return 1
+        else:
+            count = 0
+            itr = head
+            while itr:
+                itr = itr.next
+                count += 1
+            return count
+            
