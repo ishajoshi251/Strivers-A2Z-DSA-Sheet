@@ -1,0 +1,18 @@
+class Solution:
+    #Function to find first node if the linked list has a loop.
+    def findFirstNode(self, head):
+        #code here
+        if not head:
+            return None
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                slow = head
+                while slow != fast:
+                    slow = slow.next
+                    fast = fast.next
+                return slow.data
+        return -1
