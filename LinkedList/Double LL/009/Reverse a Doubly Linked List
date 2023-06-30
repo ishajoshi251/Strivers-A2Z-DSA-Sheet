@@ -1,0 +1,16 @@
+'''
+class Node: 
+    def __init__(self, data): 
+        self.data = data  
+        self.next = None
+        self.prev = None
+'''
+
+def reverseDLL(head):
+    #return head after reversing
+    curr = head
+    while curr:
+        curr.next,curr.prev = curr.prev,curr.next
+        if curr.prev == None:
+            return curr
+        curr = curr.prev
