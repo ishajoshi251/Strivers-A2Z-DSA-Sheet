@@ -1,0 +1,55 @@
+class Solution:
+    #Function to add two numbers represented by linked list.
+    def reverse(self,head):
+        curr= head
+        nxt = None
+        prev = None
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        return prev
+        
+    def addTwoLists(self, first, second):
+        # code here
+        # return head of sum list
+        if not first:
+            return second
+        if not second:
+            return first
+        dummy = Node(0)
+        ans = dummy
+        carry = 0
+        temp1 = self.reverse(first)
+        temp2 = self.reverse(second)
+        
+        while temp1 and temp2:
+            summ = temp1.data+temp2.data+carry
+            carry = summ//10
+            dummy.next = Node(summ%10)
+            temp1 = temp1.next
+            temp2 = temp2.next
+            dummy = dummy.next
+            
+        while temp1:
+            summ = temp1.data+carry
+            carry = summ//10
+            dummy.next = Node(summ%10)
+            temp1 = temp1.next
+            dummy = dummy.next
+            
+        while temp2:
+            summ = temp2.data+carry
+            carry = summ//10
+            dummy.next = Node(summ%10)
+            temp2 = temp2.next
+            dummy = dummy.next
+            
+        if carry:
+            dummy.next = Node(1)
+        
+        res = self.reverse(ans.next)
+        return res
+            
+            
