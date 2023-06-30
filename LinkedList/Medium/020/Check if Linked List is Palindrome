@@ -1,0 +1,26 @@
+class Solution:
+    def reverse(self,head):
+        curr = head
+        prev = None
+        nxt  = None
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        return prev
+    def isPalindrome(self, head):
+        #code here
+        fast = head
+        slow = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        temp1 = head
+        temp2 = self.reverse(slow)
+        while temp2:
+            if temp1.data != temp2.data:
+                return False
+            temp1 = temp1.next
+            temp2 = temp2.next
+        return True
