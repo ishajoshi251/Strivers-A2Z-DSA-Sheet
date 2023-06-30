@@ -1,0 +1,21 @@
+class Solution:
+    def divide(self, N, head):
+        # code here
+        even = node()
+        odd = node()
+        e = even
+        o = odd
+    
+        while head:
+            temp=head.next
+            head.next=None
+            if head.data%2 == 0:
+                even.next = head
+                even = even.next
+            else:
+                odd.next = head
+                odd = odd.next
+            head = temp
+                
+        even.next = o.next
+        return e.next
