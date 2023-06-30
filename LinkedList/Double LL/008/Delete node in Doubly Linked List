@@ -1,0 +1,21 @@
+'''class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+'''
+class Solution:
+    def deleteNode(self,head, x):
+        # Code here
+        count = 1
+        itr = head
+        if x == count:
+           head= head.next
+           head.prev = None
+        else:
+            while itr:
+                if count == x:
+                    itr.prev.next = itr.next
+                itr = itr.next
+                count += 1
+        return head
