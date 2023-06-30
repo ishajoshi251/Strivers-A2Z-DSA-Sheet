@@ -1,0 +1,28 @@
+class Solution:
+    def reverse(self,head):
+        curr = head
+        nxt = None
+        prev = None
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        return prev
+    def addOne(self,head):
+        #Returns new head of linked List.
+        carry = 1
+        dummy = Node(0)
+        ans = dummy
+        temp1 = self.reverse(head)
+        while temp1:
+            summ = temp1.data+carry
+            carry = summ//10
+            dummy.next = Node(summ%10)
+            temp1 = temp1.next
+            dummy = dummy.next
+        if carry:
+            dummy.next = Node(1)
+            
+        res = self.reverse(ans.next)
+        return res
