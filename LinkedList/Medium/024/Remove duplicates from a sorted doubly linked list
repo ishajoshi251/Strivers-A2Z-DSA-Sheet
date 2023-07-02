@@ -1,0 +1,15 @@
+class Solution:
+    #Function to remove duplicates from unsorted linked list.
+    def removeDuplicates(self, head):
+        # code here
+        # return head after editing list
+        if not head or not head.next:
+            return head
+        itr = head.next
+        while itr:
+            if itr.data == itr.prev.data:
+                itr.prev.next = itr.next
+                if itr.next != None:
+                    itr.next.prev = itr.prev
+            itr = itr.next
+        return head
