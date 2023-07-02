@@ -1,0 +1,27 @@
+def flatten(root):
+    #Your code here
+    def mergeList(h1,h2):
+        if not h1:
+            return h2
+        if not h2:
+            return h1
+        new = Node(0)
+        dummy = new
+        while h1 and h2:
+            if h1.data<h2.data:
+                new.bottom = h1
+                h1 = h1.bottom
+            else:
+                
+                new.bottom = h2
+                h2 = h2.bottom
+            new = new.bottom
+        if h1:
+            new.bottom = h1
+        if h2:
+            new.bottom = h2
+        return dummy.bottom
+    if not root or not root.next:
+        return root
+    
+    return mergeList(root,flatten(root.next))
