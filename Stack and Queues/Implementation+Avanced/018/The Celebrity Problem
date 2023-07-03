@@ -1,0 +1,24 @@
+class Solution:
+    
+    #Function to find if there is a celebrity in the party or not.
+    def celebrity(self, M, n):
+        # code here 
+        stack = []
+        for i in range(0,n):
+            stack.append(i)
+        
+        while len(stack) > 1:
+            i = stack.pop()
+            j = stack.pop()
+            
+            if M[i][j] == 1:
+                stack.append(j)
+            else:
+                stack.append(i)
+        possible_candidate = stack.pop()
+        
+        for i in range(n):
+            if i != possible_candidate:
+                if M[i][possible_candidate] == 0 or M[possible_candidate][i] == 1:
+                    return -1
+        return possible_candidate
