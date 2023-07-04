@@ -1,0 +1,26 @@
+lass Solution{
+  public:
+    int numberOfSubarrays(vector<int>& arr, int N, int target){
+        // code here
+        int count = 0;
+        int summ = 0;
+        unordered_map<int,int>mp;
+        int i;
+        for(i=0;i<N;i++){
+            summ += arr[i];
+            if(summ == target){
+                count++;
+            }
+            if(mp.find(summ-target) != mp.end()){
+                count += mp[summ-target];
+            }
+            if(mp.find(summ) != mp.end()){
+                mp[summ]++;
+            }
+            else{
+                mp[summ] = 1;
+            }
+        }
+        return count;
+    }
+};
