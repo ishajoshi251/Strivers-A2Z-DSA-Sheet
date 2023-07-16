@@ -1,0 +1,15 @@
+class Solution:
+    # return true/false denoting whether the tree is Symmetric or not
+    def check(self,r1,r2):
+        if not r1 and not r2:
+            return True
+        if not r1 or not r2:
+            return False
+        if r1.data != r2.data:
+            return False
+        return self.check(r1.left,r2.right) and self.check(r1.right,r2.left)
+    def isSymmetric(self, root):
+        # Your Code Here
+        if not root:
+           return True
+        return self.check(root.left,root.right)
