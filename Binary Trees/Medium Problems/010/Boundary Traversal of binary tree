@@ -1,0 +1,48 @@
+class Solution:
+    def is_leaf(self, root):
+        return not root.left and not root.right
+    
+    def add_left(self, root, ans):
+        cur = root.left
+        while cur:
+            if not self.is_leaf(cur):
+                ans.append(cur.data)
+            if cur.left:
+                cur = cur.left
+            else:
+                cur = cur.right
+    
+    def add_leaves(self, root, ans):
+        if self.is_leaf(root):
+            ans.append(root.data)
+            return
+        
+        if root.left:
+            self.add_leaves(root.left, ans)
+        if root.right:
+            self.add_leaves(root.right, ans)
+    
+    def add_right(self, root, ans):
+        cur = root.right
+        tmp = []
+        while cur:
+            if not self.is_leaf(cur):
+                tmp.append(cur.data)
+            if cur.right:
+                cur = cur.right
+            else:
+                cur = cur.left
+        
+        for i in range(len(tmp) - 1, -1, -1):
+            ans.append(tmp[i])
+    
+    def boundary(self, root):
+        ans = []
+        if not root:
+            return ans
+        if not self.is_leaf(root):
+            ans.append(root.data)
+        self.add_left(root, ans)
+        self.add_leaves(root, ans)
+        self.add_right(root, ans)
+        return ans
