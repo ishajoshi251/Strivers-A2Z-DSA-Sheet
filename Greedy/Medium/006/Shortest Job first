@@ -1,0 +1,14 @@
+class Solution:
+    def solve(self, bt):
+        # Code here
+        bt.sort()
+        completion_time = []
+        s = 0
+        for i in range(len(bt)):
+            s+=bt[i]
+            completion_time.append(s)
+        avg = []
+        for i in range(len(bt)):
+            avg.append(completion_time[i]-bt[i])
+        ans = sum(avg)//len(avg)
+        return ans
