@@ -1,0 +1,15 @@
+class BST:
+    
+    #Function to search a node in BST.
+    def search(self, root, x):
+        #code here
+        
+        
+        while root:
+            if root.data == x:
+                return 1
+            elif root.data>x:
+                root = root.left
+            else:
+                root =root.right
+        return 0
