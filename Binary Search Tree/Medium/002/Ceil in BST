@@ -1,0 +1,15 @@
+class Solution:
+    def findCeil(self,root,x):
+        # code here
+        res = -1
+       
+        while root != None:
+            if root.key == x:
+                return root.key
+            elif root.key<x:
+                root = root.right
+            else:
+                res = root.key
+                root = root.left
+                
+        return res
