@@ -1,0 +1,36 @@
+class Solution:
+    
+    #Function to return a list of integers denoting the node 
+    #values of both the BST in a sorted order.
+    def inorder(self, root):
+        if not root:
+            return []
+        
+        l = []
+        l += self.inorder(root.left)
+        l.append(root.data)
+        l += self.inorder(root.right)
+        
+        return l
+            
+    def merge(self, root1, root2):
+        #code here.
+        l = []
+        l1 = self.inorder(root1)
+        l2 = self.inorder(root2)
+        i = 0
+        j = 0
+        while i<len(l1) and j<len(l2):
+            if l1[i]<l2[j]:
+                l.append(l1[i])
+                i += 1
+            else:
+                l.append(l2[j])
+                j += 1
+        while i<len(l1):
+            l.append(l1[i])
+            i += 1
+        while j<len(l2):
+            l.append(l2[j])
+            j += 1
+        return l
