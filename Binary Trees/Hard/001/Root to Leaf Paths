@@ -1,0 +1,22 @@
+def preorder(root,temp,ans):
+    
+    if not root:
+        return
+    temp.append(root.data)
+    if not root.left and not root.right:
+        ans.append(temp[:])
+        temp.pop()
+        return
+    preorder(root.left,temp,ans)
+    preorder(root.right,temp,ans)
+    temp.pop()
+        
+    
+def Paths(root):
+    # don't print new line
+    ans = []
+    if not root:
+        return ans
+    preorder(root,[],ans)
+    return ans
+    #code here
