@@ -1,0 +1,26 @@
+ def verticalOrder(self, root): 
+        #Your code here
+        q = []
+        q.append([root,0])
+        d = {}
+        ans = []
+        while q:
+           
+            
+            a = q[0][0]
+            level = q[0][1]
+            temp = q.pop(0)
+            
+            if level in d:
+                d[level].append(a.data)
+            else:
+                d[level] = [a.data]
+            
+            if a.left:
+                q.append([a.left,level-1])
+            if a.right:
+                q.append([a.right,level+1])
+        for i in sorted(d.keys()):
+            for j in d[i]:
+                ans.append(j)
+        return ans
