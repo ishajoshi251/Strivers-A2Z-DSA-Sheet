@@ -1,0 +1,24 @@
+class Solution:
+    def bottomView(self, root):
+        # code here
+        q = []
+        q.append([root,0])
+        d = {}
+        ans = []
+        while q:
+            curr = q[0][0]
+            level = q[0][1]
+            q.pop(0)
+            if level in d:
+                d[level].append(curr.data)
+            else:
+                d[level] = [curr.data]
+            if curr.left:
+                q.append([curr.left,level-1])
+            if curr.right:
+                q.append([curr.right,level+1])
+        for i in sorted(d.keys()):
+            
+            ans.append(d[i][-1])
+            
+        return ans
