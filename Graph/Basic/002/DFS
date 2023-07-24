@@ -1,0 +1,20 @@
+class Solution:
+    
+    #Function to return a list containing the DFS traversal of the graph.
+    def dfs(self,V,adj,ans,vis,start):
+            vis[start] = 1
+            ans.append(start)
+            
+            for i in adj[start]:
+                if not vis[i]:
+                    self.dfs(V,adj,ans,vis,i)
+    def dfsOfGraph(self, V, adj):
+        # code here
+        
+        vis = [0]*V
+       
+        ans = []
+        for i in range(V):
+            if not vis[i]:
+                self.dfs(V,adj,ans,vis,i)
+        return ans
