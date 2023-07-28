@@ -1,0 +1,24 @@
+class Solution:
+    
+    #Function to detect cycle in a directed graph.
+    def isCyclic(self, V, adj):
+        # code here
+        ind = [0]*V
+        for i in range(V):
+            for j in adj[i]:
+                ind[j] += 1
+        q = []
+        topo = []
+        for i in range(V):
+            if ind[i] == 0:
+                q.append(i)
+        while q:
+            node = q.pop(0)
+            topo.append(node)
+            for i in adj[node]:
+                ind[i] -= 1
+                if ind[i] == 0:
+                    q.append(i)
+        if len(topo) == V:
+            return False
+        return True
