@@ -1,0 +1,39 @@
+from typing import List
+
+class Solution:
+    def toposort(self,node,vis,adj,stack):
+        vis[node] = 1
+        for i in range (len(adj[node])):
+            v = adj[node][i][0]
+            if vis[v] == 0:
+                self.toposort(v,vis,adj,stack)
+        stack.append(node)
+    def shortestPath(self, n : int, m : int, edges : List[List[int]]) -> List[int]:
+        adj = [[] for i in range(n)]
+        for i in range(m):
+            u = edges[i][0]
+            v = edges[i][1]
+            w = edges[i][2]
+            adj[u].append([v,w])
+        vis = [0]*n
+        stack = []
+        for i in range(n):
+            if vis[i] == 0:
+                self.toposort(i,vis,adj,stack)
+        dist = [float('inf')]*n
+        dist[0] = 0
+        while stack:
+            node = stack.pop()
+            for i in range(len(adj[node])):
+                v = adj[node][i][0]
+                w = adj[node][i][1]
+                if dist[v]>dist[node]+w:
+                    dist[v] = dist[node]+w
+        ans = [-1]*n    
+        for i in range(n):
+            if dist[i] != float('inf'):
+                ans[i] = dist[i]
+            else:
+                ans[i] = -1
+            
+        return ans
