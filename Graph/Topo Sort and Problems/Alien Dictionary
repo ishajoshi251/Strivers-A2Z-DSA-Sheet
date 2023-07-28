@@ -1,0 +1,41 @@
+#User function Template for python3
+
+class Solution:
+    def topoSort(self, V, adj):
+        # Code here
+        ind = [0]*V
+        for i in range(V):
+            for j in adj[i]:
+                ind[j] += 1
+        q = []
+       
+        for i in range(V):
+            if ind[i] == 0:
+                q.append(i)
+        topo = []
+        while q:
+            node = q.pop(0)
+            topo.append(node)
+            for i in adj[node]:
+                ind[i] -= 1
+                if ind[i] == 0:
+                    q.append(i)
+        return topo
+    def findOrder(self,dict, N, K):
+    # code here
+        adj = [[] for i in range(K)]
+        for i in range(N-1):
+            s1 = dict[i]
+            s2 = dict[i+1]
+            l = min(len(s1),len(s2))
+            for j in range(l):
+                if s1[j] != s2[j]:
+                    adj[ord(s1[j])-ord('a')].append(ord(s2[j])-ord('a'))
+                    break
+        ans = self.topoSort(K,adj)
+        s = ''
+        for i in range(len(ans)):
+            s += chr(ans[i]+ord('a'))
+        return s
+        
+
