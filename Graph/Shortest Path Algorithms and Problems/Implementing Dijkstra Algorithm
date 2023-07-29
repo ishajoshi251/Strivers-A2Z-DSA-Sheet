@@ -1,0 +1,21 @@
+import heapq
+class Solution:
+
+    #Function to find the shortest distance of all the vertices
+    #from the source vertex S.
+    def dijkstra(self, V, adj, S):
+        #code here
+        dist = [float('inf')]*V
+        heap = []
+        heapq.heappush(heap,[0,S])
+        dist[S] = 0
+        while heap:
+            d,node = heapq.heappop(heap)
+            for i in range(len(adj[node])):
+                v = adj[node][i][0]
+                w = adj[node][i][1]
+                if d+w<dist[v]:
+                    dist[v] = d+w
+                    heapq.heappush(heap,[d+w,v])
+                
+        return dist
