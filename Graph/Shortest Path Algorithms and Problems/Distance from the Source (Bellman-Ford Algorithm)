@@ -1,0 +1,21 @@
+class Solution:
+    # Function to construct and return cost of MST for a graph
+    # represented using adjacency matrix representation
+    '''
+    V: nodes in graph
+    edges: adjacency list for the graph
+    S: Source
+    '''
+    def bellman_ford(self, V, edges, S):
+        #code here
+        dist = [100000000]*V
+        dist[S] = 0
+        for i in range(V-1):
+            for u,v,w in edges:
+                if dist[u] != float('inf') and dist[u]+w<dist[v]:
+                    dist[v] = dist[u]+w
+        for i in range(1):
+            for u,v,w in edges:
+                if dist[u] != float('inf') and dist[u]+w<dist[v]:
+                    return [-1]
+        return dist
