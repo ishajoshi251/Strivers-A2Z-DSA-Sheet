@@ -1,0 +1,9 @@
+class Solution:
+    def minimizeSum(self, n, triangle):
+        # Code here
+        for i in range(n-2,-1,-1):
+            for j in range(i+1):
+                a = triangle[i][j]+triangle[i+1][j]
+                b = triangle[i][j]+triangle[i+1][j+1]
+                triangle[i][j] = min(a,b)
+        return triangle[0][0]
