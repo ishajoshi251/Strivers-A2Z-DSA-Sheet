@@ -1,0 +1,18 @@
+class Solution:
+    
+    #Function to find the length of longest common subsequence in two strings.
+    def lcs(self,x,y,s1,s2):
+        
+        # code here
+        #User function Template for python3
+
+        
+        # code here
+        dp = [[0 for j in range(y+1)] for i in range(x+1)]
+        for i in range(x-1,-1,-1):
+            for j in range(y-1,-1,-1):
+                if s1[i] == s2[j]:
+                    dp[i][j] = 1 + dp[i+1][j+1]
+                else:
+                    dp[i][j] = max(dp[i][j+1],dp[i+1][j])
+        return dp[0][0]
