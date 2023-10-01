@@ -1,0 +1,37 @@
+class Solution:
+    def findPath(self, m, n):
+        # code here
+        ans = []
+        visited = [[0 for i in range(n)] for j in range(n)]
+        path = ""
+        if m[0][0] == 0:
+            return ans
+        self.solve(0,0,m,n,ans,visited,path)
+        return ans
+    def solve(self,x,y,m,n,ans,visited,path):
+        if x == n-1 and y == n-1:
+            ans.append(path)
+            return 
+        visited[x][y] = 1
+        #down
+        if self.issafe(x+1,y,visited,m,n):
+            self.solve(x+1,y,m,n,ans,visited,path+'D')
+            
+        #left
+        if self.issafe(x,y-1,visited,m,n):
+            self.solve(x,y-1,m,n,ans,visited,path+'L')
+            
+        #right
+        if self.issafe(x,y+1,visited,m,n):
+            self.solve(x,y+1,m,n,ans,visited,path+'R')
+            
+        #up
+        if self.issafe(x-1,y,visited,m,n):
+            self.solve(x-1,y,m,n,ans,visited,path+'U')
+            
+        visited[x][y] = 0
+    def issafe(self,newx,newy,visited,m,n):
+        if (newx >= 0 and newx < n) and (newy >= 0 and newy < n) and visited[newx][newy] != 1 and m[newx][newy] == 1:
+            return True
+        else:
+            return False
